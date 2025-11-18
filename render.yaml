@@ -1,0 +1,46 @@
+# Render deployment configuration for YouTube Auto Generator
+
+services:
+  # Web service for LINE webhook
+  - type: web
+    name: youtube-auto-generator
+    env: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      # API Keys
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ELEVENLABS_API_KEY
+        sync: false
+
+      # LINE Integration
+      - key: LINE_CHANNEL_SECRET
+        sync: false
+      - key: LINE_CHANNEL_ACCESS_TOKEN
+        sync: false
+
+      # YouTube API
+      - key: YOUTUBE_CLIENT_ID
+        sync: false
+      - key: YOUTUBE_CLIENT_SECRET
+        sync: false
+      - key: YOUTUBE_REFRESH_TOKEN
+        sync: false
+
+      # Google Drive
+      - key: GOOGLE_DRIVE_FOLDER_ID
+        sync: false
+
+      # Server Configuration
+      - key: PORT
+        value: 8000
+      - key: HOST
+        value: 0.0.0.0
+
+    healthCheckPath: /health

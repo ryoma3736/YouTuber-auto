@@ -8,7 +8,8 @@
     "build": "tsc",
     "test": "vitest",
     "lint": "eslint . --ext .ts,.tsx",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "agents:parallel:exec": "tsx scripts/agents-executor.ts"
   },
   "keywords": [
     "agentic-os",
