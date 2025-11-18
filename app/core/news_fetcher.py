@@ -41,8 +41,10 @@ class GoogleNewsRSSFetcher:
         """
         # Google News RSS for China Business news (in English or Japanese)
         # Using search query for China economic news
-        query = "中国経済 OR China economy"
-        url = f"{self.base_url}/search?q={query}&hl=ja&gl=JP&ceid=JP:ja"
+        import urllib.parse
+        query = "中国経済"
+        encoded_query = urllib.parse.quote(query)
+        url = f"{self.base_url}/search?q={encoded_query}&hl=ja&gl=JP&ceid=JP:ja"
 
         return self._fetch_feed(url, max_results, "中国")
 
