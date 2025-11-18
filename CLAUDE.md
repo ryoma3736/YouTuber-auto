@@ -177,6 +177,7 @@ ANTHROPIC_API_KEY=sk-ant-xxxxx
 
 - **Framework**: [Miyabi](https://github.com/ShunsukeHayashi/Autonomous-Operations)
 - **Documentation**: README.md
+- **Feature Specs**: `docs/youtube-economic-news-plan.md`
 - **Issues**: GitHub Issues で管理
 
 ---
